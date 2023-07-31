@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    RED.nodes.registerType('simple-bu',{
+        category: 'function',
+        defaults: {
+            name: {value:""},
+            url: {value:"", required:true},
+            sn: {value:"", required:true},
+            type: {value:"", required:true}
+        },
+        inputs:1,
+        outputs:1,
+        color: "#a6bbcf",
+        icon: "file.png",
+        label: function() {
+            return this.name||"simple-bu";
+        },
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        },
+        oneditprepare: function() {
+            // Prepare the node editor when it's opened
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="simple-bu-node">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-url"><i class="icon-globe"></i> URL</label>
+        <input type="text" id="node-input-url" placeholder="Endpoint URL">
+    </div>
+    <div class="form-row">
+        <label for="node-input-sn"><i class="icon-tag"></i> Serial Number</label>
+        <input type="text" id="node-input-sn" placeholder="Serial Number">
+    </div>
+    <div class="form-row">
+        <label for="node-input-type"><i class="icon-tag"></i> Type</label>
+        <input type="text" id="node-input-type" placeholder="Type">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="simple-bu">
+    <p>A simple node that sends HTTP requests to a specified endpoint with the given payload, SN, and Type.</p>
+</script>
+
